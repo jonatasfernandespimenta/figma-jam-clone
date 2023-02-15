@@ -17,8 +17,8 @@ export default function ShapesToolBar({ nodes, setNodes }: IShapesToolBar) {
       id: crypto.randomUUID(),
       type,
       position: {
-        x: lastNode.position.x + 150,
-        y: lastNode.position.y
+        x: lastNode.position.x + Number(lastNode.width) + 50,
+        y: lastNode.position.y,
       },
       data: {},
     }])
