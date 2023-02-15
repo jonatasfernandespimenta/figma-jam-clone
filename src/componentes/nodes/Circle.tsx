@@ -2,10 +2,22 @@ import { NodeResizer } from "@reactflow/node-resizer";
 import { NodeProps, Handle, Position } from "reactflow";
 
 import '@reactflow/node-resizer/dist/style.css';
+import { useState } from "react";
+import { usePropertiesData } from "../../contexts/properties.context";
 
 export default function Circle(props: NodeProps) {
+  const [text, setText] = useState('');
+  const [active, setActive] = useState(false);
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === 'Enter') {
+      event.target.value = '';
+      setActive(false)
+    }
+  };
+
   return (
-    <div className="bg-violet-500 w-full h-full rounded-full min-w-[100px] min-h-[100px]">
+    <div onDoubleClick={() => setActive(true)} className="bg-violet-500 w-full h-full rounded-full min-w-[100px] min-h-[100px] flex justify-center text-center items-center p-4">
       <NodeResizer
         isVisible={props.selected}
         minWidth={100}
@@ -41,6 +53,13 @@ export default function Circle(props: NodeProps) {
         type="source"
         style={{ borderRadius: 100, marginBottom: -4, background: '#4bdbde', border: 'none' }}
       />
+
+      {
+        active ?
+          <input className="h-8 bg-transparent w-full text-white focus:outline-none" onKeyDown={handleKeyDown} value={text} onChange={(e) => setText(e.target.value)} />
+          :
+          <p className="h-8 bg-transparent text-white">{text}</p>
+      }
     </div>
   );
 }
