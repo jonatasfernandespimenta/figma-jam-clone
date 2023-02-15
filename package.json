@@ -2,7 +2,7 @@
   "name": "figma-jam",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://jonatasfernandespimenta.github.io/figjamclon",
+  "homepage": "https://jonatasfernandespimenta.github.io/figma-jam-clone",
   "type": "module",
   "scripts": {
     "dev": "vite",
