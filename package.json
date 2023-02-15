@@ -2,11 +2,14 @@
   "name": "figma-jam",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://jonatasfernandespimenta.github.io/figjamclon",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@liveblocks/client": "^1.0.0",
@@ -14,6 +17,7 @@
     "@radix-ui/react-toolbar": "^1.0.2",
     "@reactflow/node-resizer": "^2.0.1",
     "autoprefixer": "^10.4.13",
+    "gh-pages": "^5.0.0",
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
